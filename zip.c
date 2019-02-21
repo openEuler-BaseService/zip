@@ -1437,7 +1437,7 @@ local void check_zipfile(zipname, zippath)
     /* Replace first {} with archive name.  If no {} append name to string. */
     here = strstr(unzip_path, "{}");
 
-    if ((cmd = malloc(strlen(unzip_path) + strlen(zipname) + 3)) == NULL) {
+    if ((cmd = malloc(strlen(unzip_path) + strlen(zipname) + 4)) == NULL) {
       ziperr(ZE_MEM, "building command string for testing archive");
     }
 
