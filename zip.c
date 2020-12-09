@@ -450,6 +450,15 @@ int s;                  /* signal number (ignored) */
 /* Upon getting a user interrupt, turn echo back on for tty and abort
    cleanly using ziperr(). */
 {
+/* Cleanup residual temporary file */
+if ( s == SIGABRT )
+  {
+    if (tempzip != NULL)
+    {
+      destroy(tempzip);
+    }
+  }
+
 #if defined(AMIGA) && defined(__SASC)
    _abort();
 #else
